@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Contoh sederhana untuk validasi form (bisa dikembangkan lebih lanjut)
+    // Contoh sederhana untuk validasi form dan pesan sukses/error
     const contactForm = document.querySelector('#contact form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
@@ -18,17 +18,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const name = document.getElementById('nama').value;
             const email = document.getElementById('email').value;
+            const phone = document.getElementById('telepon').value;
             const message = document.getElementById('pesan').value;
 
-            if (name && email && message) {
-                alert('Terima kasih, ' + name + '! Pesan Anda telah kami terima dan akan segera kami proses.');
+            if (name && phone && message) { // Email dan lokasi opsional
+                // Di sini Anda akan mengirim data ke backend (misal: Flask/PHP/Node.js)
+                // Untuk demo ini, kita hanya menampilkan alert
+                alert('Terima kasih, ' + name + '! Permintaan penawaran Anda telah kami terima dan akan segera kami proses melalui WhatsApp.');
                 contactForm.reset(); // Mengosongkan form
             } else {
-                alert('Mohon lengkapi semua kolom yang wajib diisi (Nama, Email, Pesan).');
+                alert('Mohon lengkapi kolom Nama Lengkap, Nomor Telepon (WA Aktif), dan Detail Kebutuhan Pagar Anda.');
             }
         });
     }
 
-    // Jika Anda ingin membuat slider testimoni, JavaScript akan lebih kompleks di sini.
-    // Ini hanyalah placeholder untuk menunjukkan di mana kode JavaScript bisa ditempatkan.
+    // Optional: Logika untuk slider testimoni (jika ingin otomatis geser)
+    // Anda bisa menggunakan library JS seperti Swiper.js atau menulis sendiri.
+    // Contoh sederhana (tanpa otomatisasi atau tombol navigasi):
+    const testimonialSlider = document.querySelector('.testimonial-slider');
+    if (testimonialSlider) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        testimonialSlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            testimonialSlider.classList.add('active');
+            startX = e.pageX - testimonialSlider.offsetLeft;
+            scrollLeft = testimonialSlider.scrollLeft;
+        });
+        testimonialSlider.addEventListener('mouseleave', () => {
+            isDown = false;
+            testimonialSlider.classList.remove('active');
+        });
+        testimonialSlider.addEventListener('mouseup', () => {
+            isDown = false;
+            testimonialSlider.classList.remove('active');
+        });
+        testimonialSlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - testimonialSlider.offsetLeft;
+            const walk = (x - startX) * 2; // Kecepatan scroll
+            testimonialSlider.scrollLeft = scrollLeft - walk;
+        });
+    }
 });
