@@ -1,0 +1,352 @@
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif; /* Ganti dengan 'Poppins', sans-serif jika pakai Google Fonts */
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f8f8;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.bg-light {
+  background-color: #f4faff; /* Warna latar belakang yang sedikit berbeda untuk bagian tertentu */
+}
+
+/* Header */
+header {
+  background: #fff;
+  color: #333;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #333;
+  text-decoration: none;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  display: inline;
+  margin-left: 25px;
+}
+
+header nav a {
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #007bff; /* Warna biru primer */
+}
+
+.btn-header {
+  background: #007bff;
+  color: #fff !important; /* !important untuk menimpa aturan lain jika ada */
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.btn-header:hover {
+  background: #0056b3;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+  background: #007bff; /* Biru primer */
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #28a745; /* Hijau sekunder */
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+
+/* Sections General */
+section {
+  padding: 60px 0;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+section h2 {
+  font-size: 2.8em;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+section p {
+  font-size: 1.1em;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+}
+
+/* Hero Section */
+#hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x700/555/fff?text=Background+Hero') no-repeat center center/cover;
+  color: #fff;
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#hero h1 {
+  font-size: 3.8em;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+#hero p {
+  font-size: 1.3em;
+  margin-bottom: 40px;
+  max-width: 900px;
+}
+
+/* Services Section */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.service-item {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.service-item h3 {
+  color: #007bff;
+  margin-bottom: 15px;
+  font-size: 1.6em;
+}
+
+/* Why Us Section */
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.reason-item {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.reason-item img {
+  margin-bottom: 20px;
+}
+
+.reason-item h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+/* Testimonials Section */
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto; /* Untuk efek slide jika banyak testimoni */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 20px;
+  padding-bottom: 20px; /* Ruang untuk scrollbar */
+  justify-content: center; /* Untuk menengahkan jika item sedikit */
+}
+
+.testimonial-item {
+  flex: 0 0 45%; /* Sesuaikan lebar item testimoni */
+  min-width: 300px; /* Lebar minimum agar tidak terlalu kecil di mobile */
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.testimonial-item p {
+  font-style: italic;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  color: #555;
+  max-width: none; /* Hilangkan batasan lebar */
+}
+
+.testimonial-item h4 {
+  color: #007bff;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Contact Section */
+#contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 40px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#contact form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #555;
+}
+
+#contact form input[type="text"],
+#contact form input[type="email"],
+#contact form input[type="tel"],
+#contact form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 25px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+#contact form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+#contact form button[type="submit"] {
+  width: auto;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header .container {
+      flex-direction: column;
+  }
+
+  header nav ul {
+      margin-top: 15px;
+  }
+
+  header nav ul li {
+      margin: 0 10px;
+      display: block; /* Agar setiap link ke bawah */
+      padding: 5px 0;
+  }
+
+  #hero h1 {
+      font-size: 2.5em;
+  }
+
+  #hero p {
+      font-size: 1.1em;
+  }
+
+  section h2 {
+      font-size: 2em;
+  }
+
+  .service-grid, .why-us-grid {
+      grid-template-columns: 1fr; /* Kolom tunggal untuk mobile */
+  }
+
+  .testimonial-item {
+      flex: 0 0 90%; /* Lebih lebar di mobile */
+  }
+}
